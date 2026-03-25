@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>军事热点日报 · 2026年3月25日</title>
+<style>
+  :root {
+    --bg-main: #141b26;
+    --bg-card: #1c2538;
+    --bg-sidebar: #182030;
+    --bg-header: #0f1520;
+    --accent-red: #e63946;
+    --accent-orange: #f4a261;
+    --accent-yellow: #e9c46a;
+    --accent-blue: #457b9d;
+    --accent-green: #2a9d8f;
+    --accent-purple: #7b2d8b;
+    --text-primary: #e8eaf0;
+    --text-secondary: #9aa5b4;
+    --text-muted: #6b7891;
+    --border: #2a3549;
+    --tag-bg: #1e2d45;
+    --ticker-bg: #0d1520;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── 滚动新闻警报栏 ─── */
+  .ticker-wrap {
+    background: var(--ticker-bg);
+    border-bottom: 2px solid var(--accent-red);
+    overflow: hidden;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .ticker-label {
+    background: var(--accent-red);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 0 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .ticker-content {
+    display: flex;
+    animation: ticker-scroll 90s linear infinite;
+    white-space: nowrap;
+    padding-left: 30px;
+  }
+  .ticker-content:hover { animation-play-state: paused; }
+  .ticker-item {
+    color: #f0c040;
+    font-size: 12.5px;
+    padding-right: 60px;
+  }
+  .ticker-item .sep { color: var(--accent-red); margin-right: 8px; }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── 顶部页头 ─── */
+  .page-header {
+    background: linear-gradient(135deg, #0f1520 0%, #1a2540 60%, #0f1e30 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 28px 18px;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title { display: flex; align-items: center; gap: 14px; }
+  .header-icon {
+    font-size: 36px;
+    filter: drop-shadow(0 0 8px rgba(230,57,70,0.6));
+  }
+  .header-text h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .header-text p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .header-badge {
+    background: rgba(230,57,70,0.2);
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── 顶部统计栏 ─── */
+  .stats-bar {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+  }
+  .stat-value { font-size: 22px; font-weight: 800; color: #fff; }
+  .stat-value.red { color: var(--accent-red); }
+  .stat-value.orange { color: var(--accent-orange); }
+  .stat-value.yellow { color: var(--accent-yellow); }
+  .stat-value.blue { color: var(--accent-blue); }
+  .stat-value.green { color: var(--accent-green); }
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── 主体布局 ─── */
+  .main-layout {
+    display: flex;
+    gap: 0;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  /* ─── 左侧新闻流 ─── */
+  .news-feed {
+    flex: 1;
+    padding: 20px 20px 20px 24px;
+    min-width: 0;
+  }
+
+  /* ─── 分区标题 ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .section-header h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-count {
+    background: rgba(255,255,255,0.08);
+    color: var(--text-secondary);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* ─── 新闻卡片 ─── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    border-color: #3a4a6a;
+  }
+  .card-priority-bar { height: 3px; width: 100%; }
+  .priority-1 { background: linear-gradient(90deg, #e63946, #ff6b6b); }
+  .priority-2 { background: linear-gradient(90deg, #f4a261, #ffd166); }
+  .priority-3 { background: linear-gradient(90deg, #2a9d8f, #57cc99); }
+  .priority-4 { background: linear-gradient(90deg, #457b9d, #a8dadc); }
+
+  .card-body { padding: 14px 16px 12px; }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e8eaf0;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-time { font-size: 11px; color: var(--text-muted); }
+  .source-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-ap { background: rgba(200,50,50,0.2); color: #ff9898; border: 1px solid rgba(200,50,50,0.3); }
+  .badge-twz { background: rgba(230,57,70,0.2); color: #ff8a8a; border: 1px solid rgba(230,57,70,0.3); }
+  .badge-dn { background: rgba(60,100,200,0.2); color: #88aaff; border: 1px solid rgba(60,100,200,0.3); }
+  .badge-ar { background: rgba(244,162,97,0.2); color: #f4c07a; border: 1px solid rgba(244,162,97,0.3); }
+  .badge-ki { background: rgba(80,190,140,0.2); color: #7ddfb0; border: 1px solid rgba(80,190,140,0.3); }
+  .badge-abc { background: rgba(50,100,200,0.2); color: #88b8ff; border: 1px solid rgba(50,100,200,0.3); }
+  .badge-cnn { background: rgba(200,30,30,0.2); color: #ff8080; border: 1px solid rgba(200,30,30,0.3); }
+  .badge-f24 { background: rgba(0,100,180,0.2); color: #60b8ff; border: 1px solid rgba(0,100,180,0.3); }
+  .badge-ie { background: rgba(100,200,180,0.15); color: #6fd8c0; border: 1px solid rgba(100,200,180,0.25); }
+  .badge-mt { background: rgba(200,140,60,0.2); color: #ffc870; border: 1px solid rgba(200,140,60,0.3); }
+  .badge-wc { background: rgba(120,50,200,0.2); color: #c090ff; border: 1px solid rgba(120,50,200,0.3); }
+  .badge-gs { background: rgba(60,160,80,0.2); color: #70d890; border: 1px solid rgba(60,160,80,0.3); }
+  .badge-unverified { background: rgba(120,120,120,0.2); color: #a0a0a0; border: 1px solid rgba(120,120,120,0.3); }
+
+  .card-summary {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid #2a3a55;
+  }
+  .card-footer {
+    border-top: 1px solid var(--border);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-footer a {
+    color: var(--accent-blue);
+    font-size: 11px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .card-footer a:hover { color: #a8dadc; }
+
+  /* ─── 右侧边栏 ─── */
+  .sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-sidebar);
+    border-left: 1px solid var(--border);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .sidebar-section h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* 热力图 */
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .heat-cell {
+    border-radius: 8px;
+    padding: 12px 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .heat-critical { background: rgba(230,57,70,0.25); border: 1px solid rgba(230,57,70,0.4); }
+  .heat-high { background: rgba(244,162,97,0.2); border: 1px solid rgba(244,162,97,0.35); }
+  .heat-medium { background: rgba(69,123,157,0.2); border: 1px solid rgba(69,123,157,0.35); }
+  .heat-low { background: rgba(42,157,143,0.15); border: 1px solid rgba(42,157,143,0.3); }
+  .heat-name { font-size: 12px; font-weight: 700; color: #ddd; margin-bottom: 4px; }
+  .heat-count { font-size: 22px; font-weight: 900; }
+  .heat-critical .heat-count { color: #ff6b6b; }
+  .heat-high .heat-count { color: #f4a261; }
+  .heat-medium .heat-count { color: #7fb3e0; }
+  .heat-low .heat-count { color: #5fdfb0; }
+  .heat-label { font-size: 10px; color: var(--text-muted); }
+
+  /* 时间轴 */
+  .timeline { position: relative; padding-left: 18px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-red), var(--accent-blue));
+    opacity: 0.4;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 12px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -16px;
+    top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--bg-sidebar);
+  }
+  .tl-dot.red { border-color: var(--accent-red); background: rgba(230,57,70,0.3); }
+  .tl-dot.orange { border-color: var(--accent-orange); background: rgba(244,162,97,0.3); }
+  .tl-dot.blue { border-color: var(--accent-blue); background: rgba(69,123,157,0.3); }
+  .tl-dot.green { border-color: var(--accent-green); background: rgba(42,157,143,0.3); }
+  .tl-dot.yellow { border-color: var(--accent-yellow); background: rgba(233,196,106,0.3); }
+  .tl-time { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; }
+  .tl-text { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .tl-text strong { color: #ccd0dc; }
+
+  /* 信源统计 */
+  .source-stats { display: flex; flex-direction: column; gap: 8px; }
+  .source-bar-item { display: flex; align-items: center; gap: 8px; }
+  .source-bar-name { font-size: 11px; color: var(--text-secondary); width: 110px; flex-shrink: 0; }
+  .source-bar-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .source-bar-fill { height: 100%; border-radius: 3px; }
+  .source-bar-num { font-size: 11px; color: var(--text-muted); width: 20px; text-align: right; }
+
+  /* 关键词云 */
+  .keyword-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+  .kw-tag {
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: default;
+    transition: opacity 0.2s;
+  }
+  .kw-tag:hover { opacity: 0.8; }
+  .kw-xl { font-size: 14px; }
+  .kw-lg { font-size: 12.5px; }
+  .kw-md { font-size: 11.5px; }
+  .kw-sm { font-size: 10.5px; }
+
+  /* 页脚 */
+  .page-footer {
+    text-align: center;
+    padding: 18px;
+    color: var(--text-muted);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+
+  /* 响应式 */
+  @media (max-width: 900px) {
+    .main-layout { flex-direction: column; }
+    .sidebar { width: 100%; border-left: none; border-top: 1px solid var(--border); }
+    .news-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 滚动警报栏 -->
+<div class="ticker-wrap">
+  <div class="ticker-label">⚡ 战况速报</div>
+  <div class="ticker-content">
+    <span class="ticker-item"><span class="sep">●</span>【中东】美向伊朗递交15点停战方案，巴基斯坦任传递方，特朗普称霍尔木兹有"巨大礼物"</span>
+    <span class="ticker-item"><span class="sep">●</span>【特拉维夫】伊朗导弹直击街道，至少7人受伤；巴林摩洛哥籍承包商遇难</span>
+    <span class="ticker-item"><span class="sep">●</span>【核安全】布什尔核电站遭抛射物命中，IAEA证实无辐射泄漏</span>
+    <span class="ticker-item"><span class="sep">●</span>【俄乌】俄24小时约1000架无人机轰炸乌克兰，春季攻势619次全线出击</span>
+    <span class="ticker-item"><span class="sep">●</span>【利沃夫】俄无人机昼间袭击联合国教科文组织遗址，32人受伤</span>
+    <span class="ticker-item"><span class="sep">●</span>【黎巴嫩】以色列宣布建立利塔尼河以南30公里永久安全区</span>
+    <span class="ticker-item"><span class="sep">●</span>【南海】中国军舰火控雷达锁定菲律宾护卫舰，南海对峙升级</span>
+    <span class="ticker-item"><span class="sep">●</span>【美军】第82空降师约1000名士兵将在数日内增援中东</span>
+    <span class="ticker-item"><span class="sep">●</span>【油价】布伦特原油震荡维持100美元以上，全球每日减少1100万桶供应</span>
+    <span class="ticker-item"><span class="sep">●</span>【装备】美陆军签约采购"红龙"无人机：400公里航程，抗GPS干扰</span>
+    <span class="ticker-item"><span class="sep">●</span>【中东】美向伊朗递交15点停战方案，巴基斯坦任传递方，特朗普称霍尔木兹有"巨大礼物"</span>
+    <span class="ticker-item"><span class="sep">●</span>【特拉维夫】伊朗导弹直击街道，至少7人受伤；巴林摩洛哥籍承包商遇难</span>
+    <span class="ticker-item"><span class="sep">●</span>【核安全】布什尔核电站遭抛射物命中，IAEA证实无辐射泄漏</span>
+    <span class="ticker-item"><span class="sep">●</span>【俄乌】俄24小时约1000架无人机轰炸乌克兰，春季攻势619次全线出击</span>
+    <span class="ticker-item"><span class="sep">●</span>【利沃夫】俄无人机昼间袭击联合国教科文组织遗址，32人受伤</span>
+    <span class="ticker-item"><span class="sep">●</span>【黎巴嫩】以色列宣布建立利塔尼河以南30公里永久安全区</span>
+    <span class="ticker-item"><span class="sep">●</span>【南海】中国军舰火控雷达锁定菲律宾护卫舰，南海对峙升级</span>
+    <span class="ticker-item"><span class="sep">●</span>【美军】第82空降师约1000名士兵将在数日内增援中东</span>
+    <span class="ticker-item"><span class="sep">●</span>【油价】布伦特原油震荡维持100美元以上，全球每日减少1100万桶供应</span>
+    <span class="ticker-item"><span class="sep">●</span>【装备】美陆军签约采购"红龙"无人机：400公里航程，抗GPS干扰</span>
+  </div>
+</div>
+
+<!-- 顶部页头 -->
+<div class="page-header">
+  <div class="header-top">
+    <div class="header-title">
+      <div class="header-icon">🛡️</div>
+      <div class="header-text">
+        <h1>军事热点日报</h1>
+        <p>数据窗口：2026-03-23 21:36 — 2026-03-25 09:58 BJT · 16个信源</p>
+      </div>
+    </div>
+    <div class="header-badge">2026年3月25日 · 第26天</div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value red">30</div>
+      <div class="stat-label">有效条目</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value orange">10</div>
+      <div class="stat-label">中东战区</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value yellow">6</div>
+      <div class="stat-label">俄乌战区</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value blue">4</div>
+      <div class="stat-label">亚太战区</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value green">10</div>
+      <div class="stat-label">装备/技术/外交</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="color:#c090ff">9000+</div>
+      <div class="stat-label">CENTCOM打击目标</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value red">$114</div>
+      <div class="stat-label">布伦特油价(美元)</div>
+    </div>
+  </div>
+</div>
+
+<!-- 主体布局 -->
+<div class="main-layout">
+
+  <!-- 左侧新闻流 -->
+  <div class="news-feed">
+
+    <!-- 一级：中东战争 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#e63946;box-shadow:0 0 6px #e63946;"></div>
+      <h2>🔴 一级 · 中东战争（史诗之怒行动 · 第26天）</h2>
+      <span class="section-count">10条</span>
+    </div>
+    <div class="news-grid">
+
+      <!-- 卡片1 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">美向伊朗递交15点停战方案，巴基斯坦为传递方</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25 00:09</span>
+            <span class="source-badge badge-abc">ABC7 / ABC News</span>
+          </div>
+          <div class="card-summary">美国已通过巴基斯坦向伊朗转交一份15点停战计划，涵盖弹道导弹、核项目及霍尔木兹海峡。白宫称军事行动与外交并行；伊朗官方否认谈判，称之为"计谋"。特朗普暗示伊朗给出了涉及霍尔木兹的"巨大礼物"，以色列态度未明。</div>
+          <div class="card-tags">
+            <span class="tag">停战方案</span><span class="tag">霍尔木兹</span><span class="tag">巴基斯坦斡旋</span><span class="tag">特朗普</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://abc7.com/live-updates/iran-war-news-trump-strikes-delay-israel-middle-east-oil/18756340/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片2 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗导弹袭击特拉维夫街道，海湾国家多地遭打击</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25 08:21</span>
+            <span class="source-badge badge-ap">AP News</span>
+          </div>
+          <div class="card-summary">伊朗连续向以色列发射多波次导弹，特拉维夫街道遭直接命中，至少7人受伤；以色列南部3人受伤。巴林一名为阿联酋武装部队服务的摩洛哥籍承包商在导弹袭击中遇难，5名军人受伤。科威特防空拦截致局部停电，沙特东部省拦截伊朗无人机。</div>
+          <div class="card-tags">
+            <span class="tag">特拉维夫遇袭</span><span class="tag">伊朗导弹</span><span class="tag">海湾遇袭</span><span class="tag">平民伤亡</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/article/iran-us-israel-trump-lebanon-march-24-2026-8bb5e79a98ea72fccc5c50b4931ad778" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片3 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">布什尔核电站遭抛射物命中，IAEA确认无辐射泄漏</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-abc">ABC News</span>
+          </div>
+          <div class="card-summary">国际原子能机构证实，伊朗布什尔核电站厂区于3月24日被一枚抛射物命中，伊朗称核电站本身未受损，无人员伤亡，运行正常。IAEA总干事格罗西警告此类袭击正"逼近不可接受的红线"。</div>
+          <div class="card-tags">
+            <span class="tag">布什尔核电站</span><span class="tag">IAEA</span><span class="tag">核安全</span><span class="tag">红线警告</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://abcnews.com/International/live-updates/iran-live-updates-trumps-48-hour-deadline-expire/?id=131316431" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片4 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">美军拟追加约1000名第82空降师士兵赴中东</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-abc">ABC News</span>
+          </div>
+          <div class="card-summary">消息人士透露，美国计划向中东增派不超过1500名（实际约1000名）第82空降师士兵，包括地面战斗单位和前沿指挥部，预计"数日内"出发，为可能的地面行动或维持停火协议预做准备。CENTCOM已打击伊朗境内逾9000个目标。</div>
+          <div class="card-tags">
+            <span class="tag">第82空降师</span><span class="tag">美军增援</span><span class="tag">地面部队</span><span class="tag">中东部署</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://abcnews.com/International/live-updates/iran-live-updates-trumps-48-hour-deadline-expire/?id=131316431" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片5 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗誓言"完全胜利"，拒绝停火，称战至底</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-ap">AP / The Independent</span>
+          </div>
+          <div class="card-summary">伊朗外长阿拉格希表示伊朗"不寻求停火，而是寻求战争的完全结束"，驳斥特朗普谈判说法。议会主席卡利巴夫重申战斗到底，批评任何妥协举动。与此同时伊朗继续向以色列和海湾国家发射导弹，强硬军事路线不变。</div>
+          <div class="card-tags">
+            <span class="tag">伊朗强硬</span><span class="tag">拒绝停火</span><span class="tag">外交表态</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.warcosts.org/iran-war-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片6 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">以色列宣布在黎巴嫩建立延伸至利塔尼河的30公里安全区</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24 19:24</span>
+            <span class="source-badge badge-f24">France24</span>
+          </div>
+          <div class="card-summary">以色列国防部长卡茨宣布以军将控制黎巴嫩南部直至利塔尼河（约30公里）的"永久安全区"，要求当地居民暂不得返回。真主党议员宣称武装抵抗，黎巴嫩政府已要求伊朗大使3月29日前离境。</div>
+          <div class="card-tags">
+            <span class="tag">黎巴嫩安全区</span><span class="tag">利塔尼河</span><span class="tag">真主党</span><span class="tag">以色列占领</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.france24.com/en/live-news/20260324-israel-says-will-take-control-of-security-zone-in-south-lebanon" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片7 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">黎巴嫩冲突已致1072人死亡、百万人流离失所</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-f24">France24 / AP</span>
+          </div>
+          <div class="card-summary">自3月2日哈梅内伊遇袭后冲突重启，黎巴嫩已至少1072人死亡，超100万人流离失所。贝鲁特南郊遭以军空袭，至少3人死亡（含一名3岁女孩）。以军宣称将进一步加强在黎巴嫩的军事行动。</div>
+          <div class="card-tags">
+            <span class="tag">黎巴嫩伤亡</span><span class="tag">平民死亡</span><span class="tag">贝鲁特空袭</span><span class="tag">人道危机</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-23-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片8 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">油价日内剧震：停火信号暴跌后反弹，布伦特维持100美元以上</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24—25</span>
+            <span class="source-badge badge-wc">WarCosts / AP / CNN</span>
+          </div>
+          <div class="card-summary">特朗普称谈判进展富有成效后，布伦特原油从约114美元急跌至约100美元；伊朗随即否认谈判，油价反弹。IEA警告此次危机已导致全球日均石油供应减少1100万桶，超过1973和1979年石油危机之和。</div>
+          <div class="card-tags">
+            <span class="tag">油价震荡</span><span class="tag">霍尔木兹</span><span class="tag">能源危机</span><span class="tag">布伦特原油</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.warcosts.org/iran-war-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片9 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">战争28天：伊朗3230+死亡，黎巴嫩1072+死亡，美军13人阵亡</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-23</span>
+            <span class="source-badge badge-cnn">CNN</span>
+          </div>
+          <div class="card-summary">据CNN综合数据，冲突开启以来伊朗境内已至少3230人死亡（含儿童217人）；黎巴嫩死亡逾1039人（含儿童121人）；美军确认阵亡13人，约200人受伤。CENTCOM已打击9000+目标，战争总费用估计超550亿美元。</div>
+          <div class="card-tags">
+            <span class="tag">伤亡统计</span><span class="tag">战争代价</span><span class="tag">平民死亡</span><span class="tag">CENTCOM</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cnn.com/2026/03/23/middleeast/us-israel-iran-middle-east-war-day-25-what-we-know-intl-hnk" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片10 -->
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">巴基斯坦、土耳其、欧盟加速外交斡旋</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24—25</span>
+            <span class="source-badge badge-ap">AP / CNN</span>
+          </div>
+          <div class="card-summary">巴基斯坦提出主办美伊以三方会谈；土耳其外长推动停战；欧盟主席呼吁立即谈判，欢迎美国暂停对伊电力设施打击。英国首相斯塔默"知悉接触进展"但警告不要"盲目乐观"。多国外交斡旋力度持续加大。</div>
+          <div class="card-tags">
+            <span class="tag">外交斡旋</span><span class="tag">巴基斯坦</span><span class="tag">土耳其</span><span class="tag">欧盟</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-23-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid -->
+
+    <!-- 二级：俄乌战场 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#f4a261;box-shadow:0 0 6px #f4a261;"></div>
+      <h2>🟠 二级 · 俄乌战场</h2>
+      <span class="section-count">6条</span>
+    </div>
+    <div class="news-grid">
+
+      <!-- 卡片11 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">俄罗斯近千架无人机24小时轰炸乌克兰，春季攻势启动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24 15:38（更新03-25 02:02）</span>
+            <span class="source-badge badge-ki">Kyiv Independent / AP</span>
+          </div>
+          <div class="card-summary">俄罗斯在24小时内向乌克兰发动约1000架"神风"式无人机及多枚弹道导弹，规模为全面战争以来最大空袭之一。3月24日下午550架无人机昼间攻击利沃夫，历史街区伯纳丁修道院（教科文组织遗产）受损，32人受伤，2人死亡。</div>
+          <div class="card-tags">
+            <span class="tag">神风无人机</span><span class="tag">春季攻势</span><span class="tag">大规模空袭</span><span class="tag">利沃夫</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/explosions-heard-in-kyiv-as-russia-launched-another-big-attack-after-the-overnight-mass-strikes/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片12 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">俄春季攻势确认：619次攻击覆盖全线，ISW评估已正式启动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-ap">AP / ISW</span>
+          </div>
+          <div class="card-summary">乌克兰武装部队总司令瑟尔斯基表示，俄军过去4天在整条接触线上发动619次攻击，尝试在多个战略地点突破防线。华盛顿战争研究所评估俄春夏季攻势已正式启动，利曼等顿涅茨克关键节点压力尤大。</div>
+          <div class="card-tags">
+            <span class="tag">俄春季攻势</span><span class="tag">ISW评估</span><span class="tag">利曼</span><span class="tag">顿涅茨克</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.usnews.com/news/world/articles/2026-03-24/russia-fires-nearly-400-drones-at-ukraine-with-signs-its-spring-offensive-has-started" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片13 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌克兰首次公开部署瑞典ASC 890预警机</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-23 05:25</span>
+            <span class="source-badge badge-ar">Army Recognition / The Aviationist</span>
+          </div>
+          <div class="card-summary">乌克兰于3月20日公开确认瑞典萨博340 AEW&C（ASC 890）预警机在乌西部空域执行任务，搭载"爱立眼"相控阵雷达，探测距离达450公里，可同时追踪1000个目标，大幅提升对俄无人机和巡航导弹的早期预警能力。</div>
+          <div class="card-tags">
+            <span class="tag">ASC 890</span><span class="tag">预警机</span><span class="tag">爱立眼雷达</span><span class="tag">防空升级</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukraine-deploys-swedish-asc-890-early-warning-aircraft-for-first-time-against-russian-missile-attacks" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片14 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">利沃夫历史区昼间遇袭，联合国教科文组织遗产受损</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">俄军无人机3月24日下午4点20分袭击利沃夫历史街区，伯纳丁修道院建筑群（联合国教科文组织世界遗产）受损，至少32人受伤。军事顾问指出俄方分时段攻击意在找防空漏洞，蓄意消耗乌克兰防空资源。</div>
+          <div class="card-tags">
+            <span class="tag">利沃夫空袭</span><span class="tag">文化遗产</span><span class="tag">昼间攻击</span><span class="tag">防空漏洞</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/explosions-heard-in-kyiv-as-russia-launched-another-big-attack-after-the-overnight-mass-strikes/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片15 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌克兰以无人机防御技术换取爱国者导弹</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-ap">AP</span>
+          </div>
+          <div class="card-summary">乌克兰正向美国及海湾伙伴提供其经过实战检验的无人机防御技术和战术情报，以换取急需的"爱国者"防空导弹。因伊朗战争大量消耗美国对乌防空援助，乌克兰无人机防御技术已成为外交谈判筹码。</div>
+          <div class="card-tags">
+            <span class="tag">无人机技术出口</span><span class="tag">爱国者</span><span class="tag">防空援助</span><span class="tag">技术换取</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.usnews.com/news/world/articles/2026-03-24/russia-fires-nearly-400-drones-at-ukraine-with-signs-its-spring-offensive-has-started" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片16 -->
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌克兰驻联合国大使警告：俄伊无人机合作威胁全球安全</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-23</span>
+            <span class="source-badge badge-ap">AP</span>
+          </div>
+          <div class="card-summary">乌克兰驻联合国大使在安理会呼吁关注俄罗斯与伊朗军事合作，尤其是伊朗向俄提供的"见证者"无人机技术已在乌克兰战场造成大量平民伤亡。要求国际社会对俄伊军事合作实施统一制裁。</div>
+          <div class="card-tags">
+            <span class="tag">俄伊合作</span><span class="tag">见证者无人机</span><span class="tag">联合国安理会</span><span class="tag">制裁</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-23-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid -->
+
+    <!-- 三级：亚太/全球战略 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#457b9d;box-shadow:0 0 6px #457b9d;"></div>
+      <h2>🔵 三级 · 亚太 / 全球战略</h2>
+      <span class="section-count">4条</span>
+    </div>
+    <div class="news-grid">
+
+      <!-- 卡片17 -->
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">中国军舰火控雷达锁定菲律宾护卫舰，仙宾礁对峙升级</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24 22:32</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">菲律宾官方证实，3月7日在仙宾礁（距巴拉望岛约75海里），中国解放军622号护卫舰用火控雷达锁定菲律宾"米格尔·马尔瓦尔"号导弹护卫舰，性质"等同于将枪口对准一人"。菲方无线电质问后中方解除锁定。</div>
+          <div class="card-tags">
+            <span class="tag">南海对峙</span><span class="tag">火控雷达</span><span class="tag">仙宾礁</span><span class="tag">中菲冲突</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/global/asia-pacific/2026/03/24/chinese-corvette-recently-trained-its-weapons-on-philippine-frigate-officials-confirm/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片18 -->
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">中国42艘科研船大规模海底测绘，为对美潜艇战备战</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-mt">Military Times</span>
+          </div>
+          <div class="card-summary">路透社追踪确认，中国42艘科研船在太平洋、印度洋、北冰洋进行系统性海底地形测绘，覆盖台湾周边、关岛、夏威夷、阿拉斯加等战略水域。美国海军情报局在国会作证称此为"战略关切"，认为中国旨在提升潜艇作战和反潜能力。</div>
+          <div class="card-tags">
+            <span class="tag">海底测绘</span><span class="tag">潜艇战</span><span class="tag">中国海军</span><span class="tag">太平洋战略</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.militarytimes.com/news/your-military/2026/03/24/china-maps-ocean-floor-as-it-prepares-for-submarine-warfare-with-us/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片19 -->
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">荷兰紧急追加11亿美元爱国者防空系统订单</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">荷兰计划以9.4亿欧元（约11亿美元）紧急增购一套爱国者防空系统，以避免失去生产排队位置。此举是中东战争背景下欧洲加速防空扩军的缩影，俄乌战争与中东危机双重压力迫使各国加快战备节奏。</div>
+          <div class="card-tags">
+            <span class="tag">爱国者采购</span><span class="tag">荷兰防务</span><span class="tag">欧洲扩军</span><span class="tag">防空系统</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/global/europe/2026/03/24/netherlands-plans-11-billion-rush-order-for-extra-patriot-system/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片20 -->
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">西班牙53亿美元K9自行榴弹炮项目，印多拉与韩华签约</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">西班牙国防公司印多拉（Indra）与韩国韩华（Hanwha）签署协议，将基于K9 155毫米自行榴弹炮生产280辆履带式车辆，总价值约53亿美元，为西班牙有史以来最大陆军装备采购，体现欧亚防务产业合作深化。</div>
+          <div class="card-tags">
+            <span class="tag">K9榴弹炮</span><span class="tag">西班牙采购</span><span class="tag">韩华</span><span class="tag">欧亚防务合作</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid -->
+
+    <!-- 四级：装备/技术/外交 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#e9c46a;box-shadow:0 0 6px #e9c46a;"></div>
+      <h2>🟡 四级 · 装备 / 技术 / 外交</h2>
+      <span class="section-count">10条</span>
+    </div>
+    <div class="news-grid">
+
+      <!-- 卡片21 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">美陆军签约采购"红龙"无人机：400公里射程、抗GPS干扰</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24 11:05</span>
+            <span class="source-badge badge-ie">Interesting Engineering</span>
+          </div>
+          <div class="card-summary">美国陆军授予AeroVironment公司1758万美元合同采购"红龙"（Red Dragon）一次性攻击无人机。重20公斤，翼展3.6米，航程超400公里，专为GPS和无线电链路被干扰的高对抗战场设计，可选"人在环"自主打击，10分钟内部署，5架/分钟发射，配备10公斤模块化战斗载荷。</div>
+          <div class="card-tags">
+            <span class="tag">红龙无人机</span><span class="tag">AeroVironment</span><span class="tag">自主打击</span><span class="tag">400公里</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://interestingengineering.com/military/us-army-to-get-strike-drones-from-aerovironment" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片22 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">海军陆战队陆基F-35C战机群开始向中东机动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24（约4小时前更新）</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">美国海军陆战队陆基部署的F-35C联合攻击战斗机正在向中东机动，预计加入该地区日益增强的对伊空中作战力量。F-35C由陆地基地前出部署，配合已在波斯湾活动的航母编队，形成双向打击配置。</div>
+          <div class="card-tags">
+            <span class="tag">F-35C</span><span class="tag">海军陆战队</span><span class="tag">中东机动</span><span class="tag">对伊打击</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片23 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">洛克希德发布集装箱式"地狱火"导弹发射器</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News / TWZ</span>
+          </div>
+          <div class="card-summary">洛克希德·马丁公司成功从"灰熊"（Grizzly）集装箱化发射器中发射了一枚"地狱火"导弹，该系统将导弹发射能力隐藏于标准20英尺集装箱内，可随任何商业运输工具部署，提供高度隐蔽的机动打击能力，符合分布式作战理念。</div>
+          <div class="card-tags">
+            <span class="tag">集装箱导弹</span><span class="tag">地狱火</span><span class="tag">灰熊发射器</span><span class="tag">隐蔽打击</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片24 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">MV-75倾转旋翼机：陆军军官培训先于首机交付启动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25（约4小时前更新）</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">美国陆军正加速推进MV-75倾转旋翼机项目，部队军官培训已在首架飞机正式交付前启动。MV-75是美陆军未来长程突击航空项目（FLRAA）核心装备，旨在替代UH-60"黑鹰"直升机。</div>
+          <div class="card-tags">
+            <span class="tag">MV-75</span><span class="tag">倾转旋翼</span><span class="tag">FLRAA</span><span class="tag">替代黑鹰</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片25 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">美本土军事基地遭无人机入侵，战时安全威胁上升</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25（约55分钟前）</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">美国境内多个关键军事基地上空在"史诗之怒"行动期间发生无人机入侵，幕后主使未公开确认，但安全官员担忧战时情报收集和潜在破坏风险显著上升。这是战争以来首次有媒体报道美国本土军事设施受无人机威胁。</div>
+          <div class="card-tags">
+            <span class="tag">美本土基地</span><span class="tag">无人机入侵</span><span class="tag">战时安全</span><span class="tag">情报威胁</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片26 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">前爱国者营指挥官：防空系统面对伊朗饱和攻击挑战严峻</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24（约14小时前）</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">前美国陆军防空炮兵学校校长坦承，"爱国者"等防空系统在应对伊朗密集弹道导弹和无人机"饱和攻击"时面临严峻挑战，包括拦截弹消耗速度与补充速度之间的严重失衡，这也是乌克兰防空危机的写照。</div>
+          <div class="card-tags">
+            <span class="tag">爱国者防空</span><span class="tag">饱和攻击</span><span class="tag">防空消耗</span><span class="tag">作战局限</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片27 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">TKMS与新加坡科技工程合建东南亚潜艇维护中心</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">德国蒂森克虏伯海事系统（TKMS）与新加坡科技工程公司（ST Engineering）计划在新加坡建立潜艇维护"枢纽"，服务地区内TKMS潜艇及途经的国际客户。这是中东战争背景下亚太防务合作深化的体现。</div>
+          <div class="card-tags">
+            <span class="tag">TKMS</span><span class="tag">潜艇维护</span><span class="tag">新加坡</span><span class="tag">亚太防务</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片28 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">安杜里尔高管：美立法失能正给中国带来战略优势</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">国防科技公司Anduril联合创始人在国会作证，表示国会持续机能失调正在军事技术和产业竞争中给中国创造战略开口，呼吁立法机构加速通过国防自主与无人机生产授权，否则中期将无法维持对华技术优势。</div>
+          <div class="card-tags">
+            <span class="tag">Anduril</span><span class="tag">美国立法</span><span class="tag">中美竞争</span><span class="tag">技术优势</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片29 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗战争AI目标选择引发致命误伤争议</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">一名乌克兰无人机开发商警告，发生在米纳布的疑似AI半自主打击误击学校事件，暴露了人工智能目标辅助系统的固有危险，引发五角大楼内部对AI辅助打击决策体系可靠性的重新评估。</div>
+          <div class="card-tags">
+            <span class="tag">AI目标选择</span><span class="tag">误伤争议</span><span class="tag">自主打击</span><span class="tag">五角大楼</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <!-- 卡片30 -->
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">封存A-10"疣猪"召回参战，中东实战检验价值凸显</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-gs">GlobalSecurity / Defense News</span>
+          </div>
+          <div class="card-summary">尽管美国空军已近年将A-10"疣猪"逐步退役，但在霍尔木兹高强度作战环境中，部分封存的A-10仍被召回参与支援任务，其强大的对地压制能力和低空火力在岛屿夺控和反舰场景中被证明仍具不可替代性。</div>
+          <div class="card-tags">
+            <span class="tag">A-10疣猪</span><span class="tag">召回参战</span><span class="tag">对地攻击</span><span class="tag">实战验证</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.globalsecurity.org/military/library/news/2026/03/03-25_index.htm" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid -->
+  </div><!-- /news-feed -->
+
+  <!-- 右侧边栏 -->
+  <div class="sidebar">
+
+    <!-- 全局热度分布热力图 -->
+    <div class="sidebar-section">
+      <h3>🌐 全局热度分布（4大战区）</h3>
+      <div class="heatmap-grid">
+        <div class="heat-cell heat-critical">
+          <div class="heat-name">中东战区</div>
+          <div class="heat-count">10</div>
+          <div class="heat-label">美伊以 · 史诗之怒</div>
+        </div>
+        <div class="heat-cell heat-high">
+          <div class="heat-name">俄乌战区</div>
+          <div class="heat-count">6</div>
+          <div class="heat-label">春季攻势启动</div>
+        </div>
+        <div class="heat-cell heat-medium">
+          <div class="heat-name">亚太战区</div>
+          <div class="heat-count">4</div>
+          <div class="heat-label">南海 · 海底测绘</div>
+        </div>
+        <div class="heat-cell heat-low">
+          <div class="heat-name">技术/外交</div>
+          <div class="heat-count">10</div>
+          <div class="heat-label">装备 · 采购 · AI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 事件时间轴 -->
+    <div class="sidebar-section">
+      <h3>⏱ 事件时间轴（36h内）</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-25 08:21</div>
+          <div class="tl-text"><strong>伊朗导弹袭击特拉维夫</strong>，7人受伤，巴林承包商遇难</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-25 00:09</div>
+          <div class="tl-text"><strong>美向伊朗递交15点停战方案</strong>，巴基斯坦传递</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-24 22:32</div>
+          <div class="tl-text"><strong>中国军舰火控锁定菲律宾护卫舰</strong>，仙宾礁事件确认</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-24 19:24</div>
+          <div class="tl-text"><strong>以色列宣布黎巴嫩30公里安全区</strong>至利塔尼河</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-24 16:20</div>
+          <div class="tl-text"><strong>利沃夫历史区遭无人机昼间袭击</strong>，教科文遗址受损，32伤</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-24 15:38</div>
+          <div class="tl-text"><strong>俄1000架无人机轰炸乌克兰</strong>，伊万诺-弗兰科夫斯克2死</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-24</div>
+          <div class="tl-text"><strong>布什尔核电站遭命中</strong>，IAEA证实无辐射泄漏</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot yellow"></div>
+          <div class="tl-time">03-24 11:05</div>
+          <div class="tl-text"><strong>美陆军签约采购"红龙"无人机</strong>，1758万美元</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-time">03-23 05:25</div>
+          <div class="tl-text"><strong>乌克兰首次公开部署ASC 890预警机</strong>，450公里探测范围</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-time">03-23</div>
+          <div class="tl-text"><strong>CNN统计：战争28天伊朗3230+死</strong>，费用超550亿美元</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 信源统计 -->
+    <div class="sidebar-section">
+      <h3>📡 信源统计</h3>
+      <div class="source-stats">
+        <div class="source-bar-item">
+          <span class="source-bar-name">AP News</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:100%;background:linear-gradient(90deg,#e63946,#ff6b6b);"></div>
+          </div>
+          <span class="source-bar-num">7</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Defense News</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:86%;background:linear-gradient(90deg,#457b9d,#a8dadc);"></div>
+          </div>
+          <span class="source-bar-num">6</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">The War Zone</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:71%;background:linear-gradient(90deg,#f4a261,#ffd166);"></div>
+          </div>
+          <span class="source-bar-num">5</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">ABC News / ABC7</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:43%;background:linear-gradient(90deg,#2a9d8f,#57cc99);"></div>
+          </div>
+          <span class="source-bar-num">3</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Kyiv Independent</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:43%;background:linear-gradient(90deg,#2a9d8f,#57cc99);"></div>
+          </div>
+          <span class="source-bar-num">3</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">France24</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:29%;background:linear-gradient(90deg,#0077cc,#60b8ff);"></div>
+          </div>
+          <span class="source-bar-num">2</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">CNN / WarCosts</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:29%;background:linear-gradient(90deg,#c82020,#ff8080);"></div>
+          </div>
+          <span class="source-bar-num">2</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Military Times</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:14%;background:linear-gradient(90deg,#f4a261,#ffd166);"></div>
+          </div>
+          <span class="source-bar-num">1</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Army Recognition</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:14%;background:linear-gradient(90deg,#e9c46a,#ffd166);"></div>
+          </div>
+          <span class="source-bar-num">1</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Interesting Eng.</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:14%;background:linear-gradient(90deg,#6fd8c0,#5fdfb0);"></div>
+          </div>
+          <span class="source-bar-num">1</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">GlobalSecurity</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:14%;background:linear-gradient(90deg,#60d080,#80e090);"></div>
+          </div>
+          <span class="source-bar-num">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键词云 -->
+    <div class="sidebar-section">
+      <h3>🔑 关键词云</h3>
+      <div class="keyword-cloud">
+        <span class="kw-tag kw-xl" style="background:rgba(230,57,70,0.2);color:#ff8a8a;border:1px solid rgba(230,57,70,0.3);">史诗之怒</span>
+        <span class="kw-tag kw-xl" style="background:rgba(230,57,70,0.2);color:#ff8a8a;border:1px solid rgba(230,57,70,0.3);">停战方案</span>
+        <span class="kw-tag kw-lg" style="background:rgba(244,162,97,0.2);color:#f4c07a;border:1px solid rgba(244,162,97,0.3);">霍尔木兹</span>
+        <span class="kw-tag kw-lg" style="background:rgba(244,162,97,0.2);color:#f4c07a;border:1px solid rgba(244,162,97,0.3);">布什尔核电站</span>
+        <span class="kw-tag kw-lg" style="background:rgba(230,57,70,0.15);color:#ff9898;border:1px solid rgba(230,57,70,0.25);">第82空降师</span>
+        <span class="kw-tag kw-lg" style="background:rgba(230,57,70,0.15);color:#ff9898;border:1px solid rgba(230,57,70,0.25);">特拉维夫遇袭</span>
+        <span class="kw-tag kw-md" style="background:rgba(42,157,143,0.2);color:#7ddfb0;border:1px solid rgba(42,157,143,0.3);">黎巴嫩安全区</span>
+        <span class="kw-tag kw-md" style="background:rgba(42,157,143,0.2);color:#7ddfb0;border:1px solid rgba(42,157,143,0.3);">利塔尼河</span>
+        <span class="kw-tag kw-md" style="background:rgba(244,162,97,0.2);color:#f4c07a;border:1px solid rgba(244,162,97,0.3);">俄春季攻势</span>
+        <span class="kw-tag kw-md" style="background:rgba(244,162,97,0.2);color:#f4c07a;border:1px solid rgba(244,162,97,0.3);">神风无人机</span>
+        <span class="kw-tag kw-md" style="background:rgba(244,162,97,0.2);color:#f4c07a;border:1px solid rgba(244,162,97,0.3);">利沃夫空袭</span>
+        <span class="kw-tag kw-md" style="background:rgba(69,123,157,0.2);color:#88aaff;border:1px solid rgba(69,123,157,0.3);">ASC 890预警机</span>
+        <span class="kw-tag kw-md" style="background:rgba(233,196,106,0.2);color:#e9c46a;border:1px solid rgba(233,196,106,0.3);">红龙无人机</span>
+        <span class="kw-tag kw-sm" style="background:rgba(69,123,157,0.15);color:#7fb3e0;border:1px solid rgba(69,123,157,0.25);">南海对峙</span>
+        <span class="kw-tag kw-sm" style="background:rgba(69,123,157,0.15);color:#7fb3e0;border:1px solid rgba(69,123,157,0.25);">仙宾礁</span>
+        <span class="kw-tag kw-sm" style="background:rgba(69,123,157,0.15);color:#7fb3e0;border:1px solid rgba(69,123,157,0.25);">潜艇测绘</span>
+        <span class="kw-tag kw-sm" style="background:rgba(230,57,70,0.12);color:#ffaaaa;border:1px solid rgba(230,57,70,0.22);">油价震荡</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.15);color:#e9c46a;border:1px solid rgba(233,196,106,0.25);">爱国者采购</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.15);color:#e9c46a;border:1px solid rgba(233,196,106,0.25);">K9榴弹炮</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.15);color:#e9c46a;border:1px solid rgba(233,196,106,0.25);">MV-75</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.15);color:#e9c46a;border:1px solid rgba(233,196,106,0.25);">F-35C</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.15);color:#e9c46a;border:1px solid rgba(233,196,106,0.25);">集装箱导弹</span>
+        <span class="kw-tag kw-sm" style="background:rgba(120,50,200,0.15);color:#c090ff;border:1px solid rgba(120,50,200,0.25);">AI目标选择</span>
+        <span class="kw-tag kw-sm" style="background:rgba(42,157,143,0.12);color:#5fdfb0;border:1px solid rgba(42,157,143,0.22);">停火谈判</span>
+        <span class="kw-tag kw-sm" style="background:rgba(42,157,143,0.12);color:#5fdfb0;border:1px solid rgba(42,157,143,0.22);">巴基斯坦斡旋</span>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /main-layout -->
+
+<!-- 页脚 -->
+<div class="page-footer">
+  <p>军事热点日报 · 2026年3月25日 | 数据窗口：2026-03-23 21:36 — 2026-03-25 09:58 BJT | 共30条</p>
+  <p style="margin-top:6px;">信源：AP News · ABC News · ABC7 · CNN · France24 · Kyiv Independent · Army Recognition · The War Zone · Defense News · Military Times · Interesting Engineering · WarCosts · GlobalSecurity | nextgendefence.com · defence.in [来源待验证]</p>
+</div>
+
+</body>
+</html>
