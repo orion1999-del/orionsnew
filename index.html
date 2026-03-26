@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>军事热点日报 · 2026年3月26日</title>
+<style>
+  :root {
+    --bg-main: #18202e;
+    --bg-card: #222d42;
+    --bg-sidebar: #1e2a3e;
+    --bg-header: #141d2e;
+    --accent-red: #e63946;
+    --accent-orange: #f4a261;
+    --accent-yellow: #e9c46a;
+    --accent-blue: #5b9bd5;
+    --accent-green: #2ec4b6;
+    --accent-purple: #9b59b6;
+    --text-primary: #eceff5;
+    --text-secondary: #aab4c8;
+    --text-muted: #7a88a0;
+    --border: #2e3f5c;
+    --tag-bg: #243050;
+    --ticker-bg: #101828;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── 滚动新闻警报栏 ─── */
+  .ticker-wrap {
+    background: var(--ticker-bg);
+    border-bottom: 2px solid var(--accent-red);
+    overflow: hidden;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .ticker-label {
+    background: var(--accent-red);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 0 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .ticker-content {
+    display: flex;
+    animation: ticker-scroll 100s linear infinite;
+    white-space: nowrap;
+    padding-left: 30px;
+  }
+  .ticker-content:hover { animation-play-state: paused; }
+  .ticker-item {
+    color: #f5d060;
+    font-size: 12.5px;
+    padding-right: 60px;
+  }
+  .ticker-item .sep { color: var(--accent-red); margin-right: 8px; }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── 顶部页头 ─── */
+  .page-header {
+    background: linear-gradient(135deg, #141d2e 0%, #1e2e50 60%, #142040 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 28px 18px;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title { display: flex; align-items: center; gap: 14px; }
+  .header-icon {
+    font-size: 38px;
+    filter: drop-shadow(0 0 10px rgba(230,57,70,0.7));
+  }
+  .header-text h1 {
+    font-size: 23px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .header-text p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 3px;
+  }
+  .header-badge {
+    background: rgba(230,57,70,0.22);
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── 顶部统计栏 ─── */
+  .stats-bar {
+    display: flex;
+    gap: 14px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+  }
+  .stat-value { font-size: 23px; font-weight: 800; color: #fff; }
+  .stat-value.red { color: #ff6b7a; }
+  .stat-value.orange { color: var(--accent-orange); }
+  .stat-value.yellow { color: var(--accent-yellow); }
+  .stat-value.blue { color: var(--accent-blue); }
+  .stat-value.green { color: var(--accent-green); }
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── 主体布局 ─── */
+  .main-layout {
+    display: flex;
+    gap: 0;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  /* ─── 左侧新闻流 ─── */
+  .news-feed {
+    flex: 1;
+    padding: 20px 20px 20px 24px;
+    min-width: 0;
+  }
+
+  /* ─── 分区标题 ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .section-header h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-count {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-secondary);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* ─── 新闻卡片 ─── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    border-color: #4a5a7a;
+  }
+  .card-priority-bar { height: 3px; width: 100%; }
+  .priority-1 { background: linear-gradient(90deg, #e63946, #ff7b7b); }
+  .priority-2 { background: linear-gradient(90deg, #f4a261, #ffd166); }
+  .priority-3 { background: linear-gradient(90deg, #2ec4b6, #57dcb8); }
+  .priority-4 { background: linear-gradient(90deg, #5b9bd5, #a8daff); }
+
+  .card-body { padding: 14px 16px 12px; }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #eceff5;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-time { font-size: 11px; color: var(--text-muted); }
+  .source-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-ap  { background: rgba(220,60,60,0.25);  color: #ffaaaa; border: 1px solid rgba(220,60,60,0.4); }
+  .badge-twz { background: rgba(230,57,70,0.22);  color: #ff9595; border: 1px solid rgba(230,57,70,0.35); }
+  .badge-dn  { background: rgba(70,120,220,0.22); color: #98baff; border: 1px solid rgba(70,120,220,0.35); }
+  .badge-ar  { background: rgba(244,162,97,0.22); color: #ffc880; border: 1px solid rgba(244,162,97,0.35); }
+  .badge-ki  { background: rgba(46,196,182,0.2);  color: #7de8dc; border: 1px solid rgba(46,196,182,0.3); }
+  .badge-cnbc{ background: rgba(30,130,210,0.22); color: #80c8ff; border: 1px solid rgba(30,130,210,0.35); }
+  .badge-npr { background: rgba(60,180,100,0.2);  color: #80e8a0; border: 1px solid rgba(60,180,100,0.3); }
+  .badge-ind { background: rgba(200,80,200,0.2);  color: #e898e8; border: 1px solid rgba(200,80,200,0.3); }
+  .badge-ac  { background: rgba(90,190,200,0.2);  color: #70dce8; border: 1px solid rgba(90,190,200,0.3); }
+  .badge-av  { background: rgba(250,180,60,0.2);  color: #ffd080; border: 1px solid rgba(250,180,60,0.3); }
+  .badge-nu  { background: rgba(80,200,130,0.2);  color: #70e8a8; border: 1px solid rgba(80,200,130,0.3); }
+  .badge-unverified { background: rgba(140,140,140,0.2); color: #b0b0b0; border: 1px solid rgba(140,140,140,0.3); }
+
+  .card-summary {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid #334060;
+  }
+  .card-footer {
+    border-top: 1px solid var(--border);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-footer a {
+    color: var(--accent-blue);
+    font-size: 11px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .card-footer a:hover { color: #a8daff; }
+
+  /* ─── 右侧边栏 ─── */
+  .sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-sidebar);
+    border-left: 1px solid var(--border);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .sidebar-section h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* 热力图 */
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .heat-cell {
+    border-radius: 8px;
+    padding: 12px 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .heat-critical { background: rgba(230,57,70,0.28);  border: 1px solid rgba(230,57,70,0.5); }
+  .heat-high     { background: rgba(244,162,97,0.24); border: 1px solid rgba(244,162,97,0.4); }
+  .heat-medium   { background: rgba(91,155,213,0.22); border: 1px solid rgba(91,155,213,0.4); }
+  .heat-low      { background: rgba(46,196,182,0.18); border: 1px solid rgba(46,196,182,0.35); }
+  .heat-name { font-size: 12px; font-weight: 700; color: #dde0ec; margin-bottom: 4px; }
+  .heat-count { font-size: 24px; font-weight: 900; }
+  .heat-critical .heat-count { color: #ff7b7b; }
+  .heat-high .heat-count     { color: #f4a261; }
+  .heat-medium .heat-count   { color: #88bcec; }
+  .heat-low .heat-count      { color: #5fe8d8; }
+  .heat-label { font-size: 10px; color: var(--text-muted); }
+
+  /* 时间轴 */
+  .timeline { position: relative; padding-left: 18px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-red), var(--accent-blue));
+    opacity: 0.45;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 12px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -16px; top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--bg-sidebar);
+  }
+  .tl-dot.red    { border-color: #ff7b7b; background: rgba(230,57,70,0.35); }
+  .tl-dot.orange { border-color: #f4a261; background: rgba(244,162,97,0.35); }
+  .tl-dot.blue   { border-color: #5b9bd5; background: rgba(91,155,213,0.35); }
+  .tl-dot.green  { border-color: #2ec4b6; background: rgba(46,196,182,0.35); }
+  .tl-dot.yellow { border-color: #e9c46a; background: rgba(233,196,106,0.35); }
+  .tl-time { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; }
+  .tl-text { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .tl-text strong { color: #d0d8ec; }
+
+  /* 信源统计 */
+  .source-stats { display: flex; flex-direction: column; gap: 8px; }
+  .source-bar-item { display: flex; align-items: center; gap: 8px; }
+  .source-bar-name { font-size: 11px; color: var(--text-secondary); width: 110px; flex-shrink: 0; }
+  .source-bar-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .source-bar-fill { height: 100%; border-radius: 3px; }
+  .source-bar-num { font-size: 11px; color: var(--text-muted); width: 20px; text-align: right; }
+
+  /* 关键词云 */
+  .keyword-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+  .kw-tag {
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: default;
+    transition: opacity 0.2s;
+  }
+  .kw-tag:hover { opacity: 0.8; }
+  .kw-xl { font-size: 14.5px; }
+  .kw-lg { font-size: 13px; }
+  .kw-md { font-size: 12px; }
+  .kw-sm { font-size: 10.5px; }
+
+  /* 页脚 */
+  .page-footer {
+    text-align: center;
+    padding: 18px;
+    color: var(--text-muted);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+
+  /* 响应式 */
+  @media (max-width: 900px) {
+    .main-layout { flex-direction: column; }
+    .sidebar { width: 100%; border-left: none; border-top: 1px solid var(--border); }
+    .news-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 滚动警报栏 -->
+<div class="ticker-wrap">
+  <div class="ticker-label">⚡ 战况速报</div>
+  <div class="ticker-content">
+    <span class="ticker-item"><span class="sep">●</span>【中东·第27天】伊朗正式拒绝美国15点停火方案，提出5项反建议，停火谈判陷入僵局</span>
+    <span class="ticker-item"><span class="sep">●</span>【伤亡统计】美伊冲突累计：伊朗逾1500死，13名美军阵亡，黎巴嫩逾1000死</span>
+    <span class="ticker-item"><span class="sep">●</span>【科威特】挫败疑似真主党主导的领导人刺杀阴谋；约旦驱逐伊朗外交官</span>
+    <span class="ticker-item"><span class="sep">●</span>【伊拉克】美国UH-60黑鹰直升机遭FPV无人机袭击，基地防护漏洞暴露</span>
+    <span class="ticker-item"><span class="sep">●</span>【俄春季攻势】四天619次攻击，400架无人机+23枚巡航导弹覆盖7座乌克兰城市</span>
+    <span class="ticker-item"><span class="sep">●</span>【乌反制】无人机重击俄乌斯特-卢加天然气港，致俄40%石油出口停摆</span>
+    <span class="ticker-item"><span class="sep">●</span>【和谈】美提议：以提供安全保证换取乌从顿巴斯部分地区撤军</span>
+    <span class="ticker-item"><span class="sep">●</span>【装备】KF-21战机首架量产型下线；M1E3坦克量产或2027启动；THAAD产能扩四倍</span>
+    <span class="ticker-item"><span class="sep">●</span>【南海】菲律宾7船护航黄岩岛，对峙中国6艘海警+20艘民兵船</span>
+    <span class="ticker-item"><span class="sep">●</span>【AI武器】美莱昂尼达斯微波车辆发布，可秒级击溃无人机蜂群；蝗虫X3激光每射5美元</span>
+    <!-- 重复一遍保持滚动连续 -->
+    <span class="ticker-item"><span class="sep">●</span>【中东·第27天】伊朗正式拒绝美国15点停火方案，提出5项反建议，停火谈判陷入僵局</span>
+    <span class="ticker-item"><span class="sep">●</span>【伤亡统计】美伊冲突累计：伊朗逾1500死，13名美军阵亡，黎巴嫩逾1000死</span>
+    <span class="ticker-item"><span class="sep">●</span>【科威特】挫败疑似真主党主导的领导人刺杀阴谋；约旦驱逐伊朗外交官</span>
+    <span class="ticker-item"><span class="sep">●</span>【伊拉克】美国UH-60黑鹰直升机遭FPV无人机袭击，基地防护漏洞暴露</span>
+    <span class="ticker-item"><span class="sep">●</span>【俄春季攻势】四天619次攻击，400架无人机+23枚巡航导弹覆盖7座乌克兰城市</span>
+    <span class="ticker-item"><span class="sep">●</span>【乌反制】无人机重击俄乌斯特-卢加天然气港，致俄40%石油出口停摆</span>
+    <span class="ticker-item"><span class="sep">●</span>【和谈】美提议：以提供安全保证换取乌从顿巴斯部分地区撤军</span>
+    <span class="ticker-item"><span class="sep">●</span>【装备】KF-21战机首架量产型下线；M1E3坦克量产或2027启动；THAAD产能扩四倍</span>
+    <span class="ticker-item"><span class="sep">●</span>【南海】菲律宾7船护航黄岩岛，对峙中国6艘海警+20艘民兵船</span>
+    <span class="ticker-item"><span class="sep">●</span>【AI武器】美莱昂尼达斯微波车辆发布，可秒级击溃无人机蜂群；蝗虫X3激光每射5美元</span>
+  </div>
+</div>
+
+<!-- 顶部页头 -->
+<div class="page-header">
+  <div class="header-top">
+    <div class="header-title">
+      <div class="header-icon">🛡️</div>
+      <div class="header-text">
+        <h1>军事热点日报</h1>
+        <p>数据窗口：2026-03-24 20:30 — 2026-03-26 08:30 BJT · 11个信源</p>
+      </div>
+    </div>
+    <div class="header-badge">2026年3月26日 · 第27天</div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value red">30</div>
+      <div class="stat-label">有效条目</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value red">10</div>
+      <div class="stat-label">中东战区</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value orange">6</div>
+      <div class="stat-label">俄乌战场</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value yellow">5</div>
+      <div class="stat-label">亚太战略</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value blue">9</div>
+      <div class="stat-label">装备/技术</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="color:#ff7b7b">1500+</div>
+      <div class="stat-label">伊朗累计死亡</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" style="color:#f4a261">129万+</div>
+      <div class="stat-label">俄军累计损失</div>
+    </div>
+  </div>
+</div>
+
+<!-- 主体布局 -->
+<div class="main-layout">
+
+  <!-- 左侧新闻流 -->
+  <div class="news-feed">
+
+    <!-- 一级：中东战争 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#e63946;box-shadow:0 0 7px #e63946;"></div>
+      <h2>🔴 一级热点 · 中东战争（美伊冲突第27天）</h2>
+      <span class="section-count">10条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗拒绝美国15点停火方案，提出5项反建议</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ap">AP News</span>
+            <span class="source-badge badge-cnbc">CNBC</span>
+            <span class="source-badge badge-npr">NPR</span>
+          </div>
+          <div class="card-summary">伊朗通过国家电视台正式拒绝美国经巴基斯坦传递的15点停火提案，同时提出反建议，要求战争赔偿、停止杀害伊朗官员、确保伊朗不再遭受攻击，并主张对霍尔木兹海峡行使主权。伊朗外长否认与美国存在任何直接谈判，与特朗普"谈判正进行中"的表态形成尖锐矛盾。</div>
+          <div class="card-tags">
+            <span class="tag">#停火谈判</span><span class="tag">#美伊对峙</span><span class="tag">#外交僵局</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-25-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">白宫警告：谈判无果将有更多打击行动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ap">AP News</span>
+          </div>
+          <div class="card-summary">白宫发言人表示，谈判并未陷入僵局，但明确警告若与伊朗谈判无法取得成果，美国将采取更多军事打击行动。特朗普在共和党筹款活动上坚称伊朗仍"有意愿达成协议"，军事压力与外交斡旋并行推进。</div>
+          <div class="card-tags">
+            <span class="tag">#白宫表态</span><span class="tag">#军事威慑</span><span class="tag">#美伊谈判</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-25-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">战争伤亡最新统计：伊朗逾1500人死亡，13名美军阵亡</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ap">AP News</span>
+          </div>
+          <div class="card-summary">截至3月25日，美伊冲突累计造成伊朗逾1500人死亡，黎巴嫩逾1000人死亡，以色列16人死亡，13名美军人员阵亡，海湾地区多名平民遇难，数百万人流离失所。联合国秘书长呼吁各方立即停火。</div>
+          <div class="card-tags">
+            <span class="tag">#战争伤亡</span><span class="tag">#人道危机</span><span class="tag">#联合国</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-25-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗持续袭击以色列及海湾国家，科威特挫败刺杀阴谋</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ap">AP News</span>
+          </div>
+          <div class="card-summary">伊朗继续对以色列（特拉维夫防空警报响起）及海湾阿拉伯国家发动导弹袭击。科威特宣布挫败一起疑似与真主党相关、针对本国领导人的刺杀阴谋；约旦暂停一名伊朗外交官居留权。阿拉伯国家联合呼吁伊朗停止攻击。</div>
+          <div class="card-tags">
+            <span class="tag">#导弹袭击</span><span class="tag">#海湾安全</span><span class="tag">#真主党</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/live/iran-war-israel-trump-03-25-2026" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊朗米纳布学校遭无人机致命袭击，AI瞄准技术引伦理争议</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">伊朗米纳布一所学校遭无人机致命袭击（据称与乌克兰开发的无人机有关），引发国际社会对半自主战争中AI目标识别风险的广泛担忧，给五角大楼力推的AI瞄准技术发展蒙上阴影。</div>
+          <div class="card-tags">
+            <span class="tag">#AI目标识别</span><span class="tag">#无人机攻击</span><span class="tag">#伦理争议</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">美军第82空降师部分部队部署中东，为地面行动待命</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-24～25</span>
+            <span class="source-badge badge-ar">Army Recognition</span>
+          </div>
+          <div class="card-summary">美国陆军已将第82空降师部分部队及指挥部部署至中东地区，数千名伞兵进入战备待命状态，为潜在地面行动做准备。五角大楼将此定性为"防御性前沿部署"，强调不预示地面入侵。</div>
+          <div class="card-tags">
+            <span class="tag">#82空降师</span><span class="tag">#美军部署</span><span class="tag">#中东战局</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.armyrecognition.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">"史诗狂怒"行动压力测试美陆军敏捷采购体系——将军披露</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-26</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">一名美军将领披露，"史诗狂怒"行动中战场措施与反制措施的快速迭代正在压力测试美国陆军的敏捷采购系统。该系统旨在加速新型装备从研发到部署的周期，类比乌克兰战场经验进行实战优化。</div>
+          <div class="card-tags">
+            <span class="tag">#敏捷采购</span><span class="tag">#史诗狂怒</span><span class="tag">#美陆军改革</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">美军PrSM精确打击导弹产量翻四倍，源于实战验证成效</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ar">Army Recognition</span>
+          </div>
+          <div class="card-summary">洛克希德·马丁公司将在"史诗狂怒"行动中成功实战使用PrSM导弹后，将该型导弹产量提升至四倍。PrSM射程超499公里，已在中东战场完成精确打击任务，成为美军陆基远程精确打击的核心力量。</div>
+          <div class="card-tags">
+            <span class="tag">#PrSM导弹</span><span class="tag">#产能扩张</span><span class="tag">#实战验证</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.armyrecognition.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">伊拉克美军黑鹰直升机遭FPV无人机攻击，警示本土防空漏洞</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-26</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">一架停放在伊拉克基地的美国陆军UH-60黑鹰直升机遭FPV无人机袭击。分析人士指出，此事件不仅标志着FPV无人机威胁激增，更警示美国在战区乃至本土基地停放的飞机面临重大安全漏洞，预示未来冲突新形态。</div>
+          <div class="card-tags">
+            <span class="tag">#FPV无人机</span><span class="tag">#伊拉克</span><span class="tag">#基地防护</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-1"></div>
+        <div class="card-body">
+          <div class="card-title">"史诗狂怒"启动后美国本土关键基地上空出现无人机入侵</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">"史诗狂怒"行动启动后，美国本土多处关键军事基地上空相继出现不明无人机入侵事件，入侵者身份尚未确认。这在战时引发了对国内关键基础设施防护的高度担忧，国土安全形势趋于紧张。</div>
+          <div class="card-tags">
+            <span class="tag">#本土防空</span><span class="tag">#无人机入侵</span><span class="tag">#基地安全</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid 中东 -->
+
+    <!-- 二级：俄乌战场 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#f4a261;box-shadow:0 0 7px #f4a261;"></div>
+      <h2>🟠 二级热点 · 俄乌战场</h2>
+      <span class="section-count">6条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">俄罗斯春季攻势正式启动：619次攻击、400架无人机轰炸</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ap">AP News</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">俄军向乌克兰发动大规模混合攻击：约400架"见证者"无人机、23枚巡航导弹、7枚弹道导弹，覆盖基辅、利沃夫等至少7座城市，造成至少6人死亡、46人受伤。华盛顿战争研究所评估俄春夏攻势"已正式开始"，四天内619次攻击。</div>
+          <div class="card-tags">
+            <span class="tag">#俄乌战争</span><span class="tag">#春季攻势</span><span class="tag">#无人机袭击</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://apnews.com/article/russia-ukraine-war-offensive-civilian-attacks-48a46d2503513c903bc3e4de31b96e00" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌军防空97%拦截率创新高，击落97%俄白天无人机攻击</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">乌克兰防空系统在一次罕见的俄军大规模白天袭击中实现97%的拦截率。乌军防空部队利用"爱国者"等系统协同作战，以极高成功率击退此次白天攻势，但防空弹药持续消耗引发关注。</div>
+          <div class="card-tags">
+            <span class="tag">#防空拦截</span><span class="tag">#乌克兰防空</span><span class="tag">#爱国者</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌克兰无人机袭击俄罗斯乌斯特-卢加天然气港口</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">乌克兰无人机袭击了俄罗斯乌斯特-卢加港的一个重要天然气港口，同时对俄军破冰船实施了前所未有的无人机打击。此外，拉脱维亚和爱沙尼亚确认，夜间进入其领空的无人机系乌克兰所有。</div>
+          <div class="card-tags">
+            <span class="tag">#乌克兰无人机</span><span class="tag">#俄罗斯能源</span><span class="tag">#波罗的海</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">乌克兰无人机致俄约40%石油出口能力停摆，现代史最严重石油中断</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">路透社报道，因乌克兰无人机袭击、管道损坏及油轮被扣押，俄罗斯约40%的石油出口能力陷入停滞，被认为是现代俄罗斯历史上最严重的石油供应中断，全球能源市场持续承压。</div>
+          <div class="card-tags">
+            <span class="tag">#俄罗斯石油</span><span class="tag">#能源战</span><span class="tag">#经济制裁</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">俄军3月25日单日损失1220人，累计伤亡超129万</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-nu">NewsUkraine</span>
+          </div>
+          <div class="card-summary">乌克兰参谋部数据显示，截至3月25日，俄军单日损失1220名士兵，坦克6辆，累计自2022年2月以来损失人员约129.1万人，坦克11806辆。俄春季攻势加剧了前线人员消耗。</div>
+          <div class="card-tags">
+            <span class="tag">#俄军损失</span><span class="tag">#前线统计</span><span class="tag">#俄乌战争</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://newsukraine.rbc.ua/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-2"></div>
+        <div class="card-body">
+          <div class="card-title">美国向乌克兰提议安全保证换取顿巴斯撤军</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-26</span>
+            <span class="source-badge badge-ki">Kyiv Independent</span>
+          </div>
+          <div class="card-summary">泽连斯基透露，美国正向乌克兰提议以提供安全保证为条件，换取乌克兰从仍由其控制的顿巴斯部分地区撤军。克里姆林宫表示仍与美国"保持接触"，俄乌和谈进入敏感博弈阶段。</div>
+          <div class="card-tags">
+            <span class="tag">#顿巴斯撤军</span><span class="tag">#和平谈判</span><span class="tag">#安全保证</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://kyivindependent.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid 俄乌 -->
+
+    <!-- 三级：亚太战略 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#e9c46a;box-shadow:0 0 7px #e9c46a;"></div>
+      <h2>🟡 三级热点 · 亚太战略</h2>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">韩国首艘大型潜艇将首次跨太平洋参加环太平洋演习</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ac">Asia Cable</span>
+          </div>
+          <div class="card-summary">3000吨级韩国潜艇"安昌浩"号将首次跨太平洋，参加6月与加拿大的联合演习并加入美国主导的"环太平洋"演习。此举背景是韩国财团正竞标加拿大12艘潜艇约200亿加元采购合同。</div>
+          <div class="card-tags">
+            <span class="tag">#韩国潜艇</span><span class="tag">#环太平洋演习</span><span class="tag">#潜艇出口</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.theasiacable.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">菲律宾7船护卫黄岩岛渔民，中国海警与民兵船对峙</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ac">Asia Cable</span>
+          </div>
+          <div class="card-summary">菲律宾海警和渔业局派遣7艘船只前往黄岩岛，为遭中国船只"骚扰"的20余艘菲律宾渔船护航补给。菲方记录到现场有6艘中国海警船、20艘海上民兵船和1艘解放军海军舰艇活动。</div>
+          <div class="card-tags">
+            <span class="tag">#黄岩岛</span><span class="tag">#南海对峙</span><span class="tag">#菲律宾</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.theasiacable.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">中国日本外交摩擦升级：中方要求严惩闯入使馆自卫队军官</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ac">Asia Cable</span>
+          </div>
+          <div class="card-summary">中国就一名自称日本现役自卫队官员的男子翻墙闯入中国驻东京大使馆事件向日本提出正式抗议，要求彻查并严惩肇事者，并加强对中国外交机构的保护，中日关系再度趋紧。</div>
+          <div class="card-tags">
+            <span class="tag">#中日外交</span><span class="tag">#大使馆事件</span><span class="tag">#自卫队</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.theasiacable.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">日本外交蓝皮书下调中日关系定位，台海稀土摩擦凸显</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ac">Asia Cable</span>
+          </div>
+          <div class="card-summary">日本将在2026年《外交蓝皮书》中调整对华关系描述，不再称中国为"最重要的双边关系之一"，转而使用"战略互惠邻国"等表述，并提及两国在稀土出口、台湾问题及军事对峙上的持续摩擦。</div>
+          <div class="card-tags">
+            <span class="tag">#日本外交</span><span class="tag">#中日关系</span><span class="tag">#稀土争端</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.theasiacable.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-3"></div>
+        <div class="card-body">
+          <div class="card-title">朝鲜新型5000吨级驱逐舰建造进展缓慢，卫星图像暴露问题</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ac">Asia Cable</span>
+          </div>
+          <div class="card-summary">卫星图像分析显示，朝鲜正在建造的5000吨级新型驱逐舰进展迟缓，存在技术问题和事故记录，整体战备水平较弱。白俄罗斯总统卢卡申科应邀访问平壤，朝白双边关系持续强化。</div>
+          <div class="card-tags">
+            <span class="tag">#朝鲜海军</span><span class="tag">#驱逐舰</span><span class="tag">#卫星侦察</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.theasiacable.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid 亚太 -->
+
+    <!-- 四级：装备技术 -->
+    <div class="section-header">
+      <div class="section-dot" style="background:#5b9bd5;box-shadow:0 0 7px #5b9bd5;"></div>
+      <h2>🔵 四级热点 · 装备技术与防务采购</h2>
+      <span class="section-count">9条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">韩国KF-21战斗机首架量产型正式下线</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-26</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">韩国首架系列量产型KF-21"猎鹰"战斗机在韩国正式下线，标志着该项目从研发测试阶段进入批量生产。KF-21采用非传统研发路径，研发周期远短于同类项目，并已敲定向印尼出口协议。</div>
+          <div class="card-tags">
+            <span class="tag">#KF-21</span><span class="tag">#韩国战机</span><span class="tag">#量产下线</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">美国M1E3下一代艾布拉姆斯坦克量产或于2027年启动</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-26</span>
+            <span class="source-badge badge-twz">The War Zone</span>
+          </div>
+          <div class="card-summary">美国陆军下一代M1E3坦克的测试单元将很快开始早期原型试验，生产可能于2027年启动。M1E3较M1A2减重约23%，采用柴油混合动力，配备自动装弹机和顶置遥控武器站，是美军装甲部队代际转型核心。</div>
+          <div class="card-tags">
+            <span class="tag">#M1E3坦克</span><span class="tag">#美国陆军</span><span class="tag">#装甲转型</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.twz.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">五角大楼签约BAE与洛马，将THAAD导引头产量提升四倍</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+            <span class="source-badge badge-ar">Army Recognition</span>
+          </div>
+          <div class="card-summary">美国国防部与BAE系统和洛克希德·马丁签署协议，将THAAD拦截弹导引头年产量提升至四倍，配合今年1月将THAAD拦截弹年产量从96枚提升至400枚的协议，大幅增强弹道导弹防御能力。</div>
+          <div class="card-tags">
+            <span class="tag">#THAAD</span><span class="tag">#导弹防御</span><span class="tag">#产能扩张</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">土耳其与英国签署欧洲战斗机训练支援协议</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">土耳其空军与英国签署了针对欧洲战斗机（Eurofighter）数十亿美元订单的培训和技术支援协议，土耳其最终计划在国内进行机身、发动机及机载设备的基地级维护，推动本国国防工业发展。</div>
+          <div class="card-tags">
+            <span class="tag">#欧洲战斗机</span><span class="tag">#土耳其</span><span class="tag">#防务采购</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">洛克希德·马丁成功从10英尺集装箱发射"地狱火"导弹</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">洛克希德·马丁公司成功从其"集装箱化灰熊发射器"（10英尺标准货运集装箱）中发射一枚AGM-114"地狱火"导弹，验证了该系统在多种平台上快速部署的可行性，为未来分布式作战概念提供新选项。</div>
+          <div class="card-tags">
+            <span class="tag">#地狱火导弹</span><span class="tag">#集装箱发射器</span><span class="tag">#洛马</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">美"莱昂尼达斯"自主微波武器车辆发布，可秒级击溃无人机蜂群</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ar">Army Recognition</span>
+          </div>
+          <div class="card-summary">美国三公司联合推出"莱昂尼达斯"自动驾驶地面车辆，搭载高功率微波武器，可在数秒内击毁无人机蜂群。该系统无需人工干预即可自主作战，被视为应对低成本无人机饱和攻击的革命性手段。</div>
+          <div class="card-tags">
+            <span class="tag">#莱昂尼达斯</span><span class="tag">#微波武器</span><span class="tag">#反无人机</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.armyrecognition.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">AeroVironment推出"蝗虫"X3激光武器，每次射击成本仅5美元</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-ar">Army Recognition</span>
+            <span class="source-badge badge-av">AeroVironment</span>
+          </div>
+          <div class="card-summary">AeroVironment公司在AUSA全球部队2026展会上发布"蝗虫"X3可扩展激光武器系统，每次射击成本极低（约5美元），可有效拦截低成本无人机蜂群，为低成本反无人机提供全新思路。</div>
+          <div class="card-tags">
+            <span class="tag">#激光武器</span><span class="tag">#蝗虫X3</span><span class="tag">#无人机对抗</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.armyrecognition.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">德国陆军部署AI工具加速战时决策，借鉴乌克兰经验</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">借鉴乌克兰实战经验，德国陆军计划部署AI工具用于战场数据分析，以加速战时决策并预测冲突动态。这是德国军队现代化改革的重要组成部分，反映了欧洲军队整体向AI辅助指挥的战略转型。</div>
+          <div class="card-tags">
+            <span class="tag">#AI作战</span><span class="tag">#德国陆军</span><span class="tag">#战时决策</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-priority-bar priority-4"></div>
+        <div class="card-body">
+          <div class="card-title">荷兰计划紧急追加11亿美元爱国者防空系统订单</div>
+          <div class="card-meta">
+            <span class="card-time">2026-03-25</span>
+            <span class="source-badge badge-dn">Defense News</span>
+          </div>
+          <div class="card-summary">荷兰计划紧急订购额外的"爱国者"防空系统，价值11亿美元，以应对中东冲突背景下北约成员国防空压力急剧上升的局面。荷兰是欧洲最早于1987年采购爱国者系统的国家之一。</div>
+          <div class="card-tags">
+            <span class="tag">#爱国者</span><span class="tag">#荷兰</span><span class="tag">#北约防空</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.defensenews.com/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div><!-- /news-grid 装备 -->
+
+  </div><!-- /news-feed -->
+
+  <!-- 右侧边栏 -->
+  <div class="sidebar">
+
+    <!-- 热力图 -->
+    <div class="sidebar-section">
+      <h3>📡 全球热度分布</h3>
+      <div class="heatmap-grid">
+        <div class="heat-cell heat-critical">
+          <div class="heat-name">中东战区</div>
+          <div class="heat-count">10</div>
+          <div class="heat-label">🔴 极高强度</div>
+        </div>
+        <div class="heat-cell heat-high">
+          <div class="heat-name">俄乌战场</div>
+          <div class="heat-count">6</div>
+          <div class="heat-label">🟠 高强度</div>
+        </div>
+        <div class="heat-cell heat-medium">
+          <div class="heat-name">亚太战略</div>
+          <div class="heat-count">5</div>
+          <div class="heat-label">🔵 中等强度</div>
+        </div>
+        <div class="heat-cell heat-low">
+          <div class="heat-name">装备/技术</div>
+          <div class="heat-count">9</div>
+          <div class="heat-label">🟢 持续关注</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 时间轴 -->
+    <div class="sidebar-section">
+      <h3>⏱ 事件时间轴（36h内）</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-26 08:30</div>
+          <div class="tl-text"><strong>黑鹰直升机</strong>遭FPV无人机袭击，伊拉克基地</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-26 07:00</div>
+          <div class="tl-text"><strong>美国安全保证提案</strong>换取乌顿巴斯撤军</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-time">03-26 06:00</div>
+          <div class="tl-text"><strong>KF-21量产型</strong>下线，韩国战机进入量产</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-25 22:00</div>
+          <div class="tl-text"><strong>伊朗拒绝15点停火</strong>，提出5项反建议</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-25 20:00</div>
+          <div class="tl-text"><strong>科威特挫败</strong>真主党刺杀阴谋</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot yellow"></div>
+          <div class="tl-time">03-25 18:00</div>
+          <div class="tl-text"><strong>俄春季攻势</strong>：400架无人机+619次攻击</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-time">03-25 16:00</div>
+          <div class="tl-text"><strong>THAAD导引头</strong>产量扩四倍协议签署</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot yellow"></div>
+          <div class="tl-time">03-25 14:00</div>
+          <div class="tl-text"><strong>乌无人机</strong>重创俄乌斯特-卢加天然气港</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-time">03-25 10:00</div>
+          <div class="tl-text"><strong>莱昂尼达斯微波武器</strong>车辆正式发布</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-time">03-25 09:00</div>
+          <div class="tl-text"><strong>菲律宾7船</strong>护卫黄岩岛渔民</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-time">03-24 22:00</div>
+          <div class="tl-text"><strong>第82空降师</strong>部分部队部署中东</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 信源统计 -->
+    <div class="sidebar-section">
+      <h3>📰 信源统计</h3>
+      <div class="source-stats">
+        <div class="source-bar-item">
+          <span class="source-bar-name">AP News</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:80%;background:#ff7b7b;"></div>
+          </div>
+          <span class="source-bar-num">8</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">The War Zone</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:60%;background:#e63946;"></div>
+          </div>
+          <span class="source-bar-num">6</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Defense News</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:60%;background:#5b9bd5;"></div>
+          </div>
+          <span class="source-bar-num">6</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Army Recognition</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:50%;background:#f4a261;"></div>
+          </div>
+          <span class="source-bar-num">5</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Kyiv Independent</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:50%;background:#2ec4b6;"></div>
+          </div>
+          <span class="source-bar-num">5</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">Asia Cable</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:50%;background:#70dce8;"></div>
+          </div>
+          <span class="source-bar-num">5</span>
+        </div>
+        <div class="source-bar-item">
+          <span class="source-bar-name">CNBC / NPR / 其他</span>
+          <div class="source-bar-track">
+            <div class="source-bar-fill" style="width:30%;background:#9b59b6;"></div>
+          </div>
+          <span class="source-bar-num">3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键词云 -->
+    <div class="sidebar-section">
+      <h3>🔍 关键词云</h3>
+      <div class="keyword-cloud">
+        <span class="kw-tag kw-xl" style="background:rgba(230,57,70,0.22);color:#ff9090;border:1px solid rgba(230,57,70,0.4);">停火谈判</span>
+        <span class="kw-tag kw-xl" style="background:rgba(244,162,97,0.22);color:#ffc070;border:1px solid rgba(244,162,97,0.4);">春季攻势</span>
+        <span class="kw-tag kw-lg" style="background:rgba(230,57,70,0.2);color:#ff8888;border:1px solid rgba(230,57,70,0.35);">伊朗反建议</span>
+        <span class="kw-tag kw-lg" style="background:rgba(46,196,182,0.2);color:#5fe8d8;border:1px solid rgba(46,196,182,0.35);">俄石油中断</span>
+        <span class="kw-tag kw-lg" style="background:rgba(91,155,213,0.2);color:#90c8ff;border:1px solid rgba(91,155,213,0.35);">KF-21量产</span>
+        <span class="kw-tag kw-lg" style="background:rgba(91,155,213,0.2);color:#90c8ff;border:1px solid rgba(91,155,213,0.35);">THAAD四倍</span>
+        <span class="kw-tag kw-md" style="background:rgba(244,162,97,0.2);color:#ffc080;border:1px solid rgba(244,162,97,0.35);">PrSM扩产</span>
+        <span class="kw-tag kw-md" style="background:rgba(230,57,70,0.18);color:#ff9898;border:1px solid rgba(230,57,70,0.3);">FPV无人机</span>
+        <span class="kw-tag kw-md" style="background:rgba(46,196,182,0.18);color:#70e8dc;border:1px solid rgba(46,196,182,0.3);">黄岩岛对峙</span>
+        <span class="kw-tag kw-md" style="background:rgba(91,155,213,0.18);color:#98c8ff;border:1px solid rgba(91,155,213,0.3);">莱昂尼达斯</span>
+        <span class="kw-tag kw-md" style="background:rgba(155,89,182,0.2);color:#d080f8;border:1px solid rgba(155,89,182,0.35);">M1E3坦克</span>
+        <span class="kw-tag kw-sm" style="background:rgba(233,196,106,0.18);color:#e8d070;border:1px solid rgba(233,196,106,0.3);">82空降师</span>
+        <span class="kw-tag kw-sm" style="background:rgba(244,162,97,0.18);color:#ffc080;border:1px solid rgba(244,162,97,0.3);">顿巴斯撤军</span>
+        <span class="kw-tag kw-sm" style="background:rgba(46,196,182,0.15);color:#60d8cc;border:1px solid rgba(46,196,182,0.28);">韩国潜艇</span>
+        <span class="kw-tag kw-sm" style="background:rgba(91,155,213,0.15);color:#88b8f8;border:1px solid rgba(91,155,213,0.28);">蝗虫X3激光</span>
+        <span class="kw-tag kw-sm" style="background:rgba(230,57,70,0.15);color:#ff8080;border:1px solid rgba(230,57,70,0.28);">AI目标识别</span>
+        <span class="kw-tag kw-sm" style="background:rgba(155,89,182,0.15);color:#c888f0;border:1px solid rgba(155,89,182,0.28);">德国AI作战</span>
+        <span class="kw-tag kw-sm" style="background:rgba(46,196,182,0.15);color:#68e0d0;border:1px solid rgba(46,196,182,0.28);">荷兰爱国者</span>
+      </div>
+    </div>
+
+    <!-- 信源异常提示 -->
+    <div class="sidebar-section">
+      <h3>⚠️ 信源状态</h3>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;">
+        <div>✅ AP News · 正常</div>
+        <div>✅ The War Zone · 正常</div>
+        <div>✅ Defense News · 正常</div>
+        <div>✅ Army Recognition · 正常</div>
+        <div>✅ Kyiv Independent · 正常</div>
+        <div>✅ Asia Cable · 正常</div>
+        <div style="color:#f4a261;">⚠️ nextgendefence.com · 无法访问 [待验证]</div>
+        <div style="color:#f4a261;">⚠️ defence.in · 无法访问 [待验证]</div>
+        <div style="color:#f4a261;">⚠️ aljazeera.com · 访问受限 [待验证]</div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /main-layout -->
+
+<div class="page-footer">
+  军事热点日报 · 2026年3月26日 · 数据窗口 2026-03-24 20:30 — 2026-03-26 08:30 BJT · 本报告由自动化系统生成，仅供参考
+</div>
+
+</body>
+</html>
